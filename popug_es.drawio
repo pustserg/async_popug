@@ -1,0 +1,31 @@
+<mxfile host="Electron" modified="2023-08-02T21:45:54.937Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="mPjdK4SuFiq4ZamVPZLH" version="21.6.5" type="device">
+  <diagram name="Page-1" id="2nE-RD3syfN-9rVGvVaN">
+    <mxGraphModel dx="1975" dy="1156" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="plr2RkYHglo8_Sw4Leua-1" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Add Task&lt;/span&gt;&lt;/div&gt;Actor: Any user&lt;br&gt;Service: Tasks&lt;br&gt;Command: TaskCreate&lt;br&gt;DomainEvent: task_created" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="plr2RkYHglo8_Sw4Leua-2" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Assign task prices&lt;/span&gt;&lt;/div&gt;Actor: Event task_created&lt;br&gt;Service: Prices&lt;br&gt;Command: Tasks::AddPrices&lt;br&gt;DomainEvent: prices_assigned" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="500" y="70" width="170" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="plr2RkYHglo8_Sw4Leua-3" value="&lt;div style=&quot;text-align: center;&quot;&gt;Withdraw worker money&lt;/div&gt;Actor: Event prices_assigned&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;task_reassigned&lt;br&gt;Service: Accounting&lt;br&gt;Command: Transactions::Create&lt;br&gt;DomainEvent: transaction_created" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="790" y="90" width="190" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="plr2RkYHglo8_Sw4Leua-4" value="&lt;div style=&quot;text-align: center;&quot;&gt;Add money to worker&lt;/div&gt;Actor: Event task_finished&lt;br&gt;Service: Accounting&lt;br&gt;Command: Transactions::Create&lt;br&gt;DomainEvent: transaction_created" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="240" width="190" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="plr2RkYHglo8_Sw4Leua-5" value="&lt;div style=&quot;text-align: center;&quot;&gt;Reassign task&lt;/div&gt;Actor: Manager or Administrator&lt;br&gt;Service: Tasks&lt;br&gt;Command: Tasks::Reassign&lt;br&gt;DomainEvent: task_reassigned" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="240" y="480" width="190" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="plr2RkYHglo8_Sw4Leua-6" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Finish task&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Actor: Worker&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;Service: Tasks&lt;br&gt;Command: Tasks::Reassign&lt;br&gt;DomainEvent: task_reassigned" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="550" y="480" width="190" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="plr2RkYHglo8_Sw4Leua-7" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Assign Task&lt;/span&gt;&lt;/div&gt;Actor: event price assigned&lt;br&gt;Service: Tasks&lt;br&gt;Command: Tasks::Assign&lt;br&gt;DomainEvent: task_assigned" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" vertex="1" parent="1">
+          <mxGeometry x="280" y="170" width="170" height="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
