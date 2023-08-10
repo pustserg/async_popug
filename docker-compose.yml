@@ -1,0 +1,71 @@
+version: '3.7'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+      - 9997:9997
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+
+  # kafka-ui:
+  #   container_name: kafka-ui
+  #   image: provectuslabs/kafka-ui:latest
+  #   ports:
+  #     - 8080:8080
+  #   environment:
+  #     DYNAMIC_CONFIG_ENABLED: true
+  #   volumes:
+  #     - $PWD/kafka_ui_config.yml:/etc/kafkaui/dynamic_config.yaml
+  #   depends_on:
+  #     - kafka
+
+  postgres:
+    image: postgres
+    ports:
+      - "5444:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  auth:
+    build:
+      context: "auth"
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - "3001:3000"
+    volumes:
+      - $PWD/auth/:/myapp
+    depends_on:
+      - postgres
+      - kafka
+
+  tasks:
+    build:
+      context: "tasks"
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - "3002:3000"
+    volumes:
+      - $PWD/tasks/:/myapp
+    depends_on:
+      - postgres
+      - kafka
+
+volumes:
+  postgres:
