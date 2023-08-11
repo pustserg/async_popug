@@ -1,3 +1,5 @@
+# check Homework week2
+
 class JwtController < ApplicationController
   def validate
     token = params[:token]

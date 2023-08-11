@@ -1,4 +1,4 @@
-# check Homework w2
+# check Homework week2
 
 class Producer
   InvalidTopic = Class.new(ArgumentError)
