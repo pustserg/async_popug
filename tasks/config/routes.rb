@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "tasks#index"
-  resources :tasks
+  resources :tasks do
+    post :finish, on: :member
+    post :shuffle, on: :collection
+  end
 end

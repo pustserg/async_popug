@@ -4,8 +4,8 @@ class Producer
   InvalidTopic = Class.new(ArgumentError)
 
   TOPICS_MAPPING = {
-    'user_registered' => 'auth.user_registered',
-    'user_updated' => 'auth.user_updated'
+    'task_assigned' => 'tasks.task_assigned',
+    'task_finished' => 'tasks.task_finished'
   }.freeze
 
   class << self

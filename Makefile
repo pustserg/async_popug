@@ -6,3 +6,6 @@ start:
 
 authrailsc:
 	docker compose run --rm auth rails c
+
+tasksrailsc:
+	docker compose run --rm tasks rails c

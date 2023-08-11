@@ -46,9 +46,9 @@ services:
   auth:
     build:
       context: "auth"
-    command: bash -c "rm -f tmp/pids/server.pid && rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -p 3001 -b '0.0.0.0'"
     ports:
-      - "3001:3000"
+      - "3001:3001"
     volumes:
       - $PWD/auth/:/myapp
     depends_on:
