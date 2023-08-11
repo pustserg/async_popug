@@ -1,3 +1,5 @@
+# check Homework w2
+
 class UserUpdateConsumer < ApplicationConsumer
   def consume
     messages.each do |message|

@@ -1,1 +1,6 @@
 *.swp
+
+auth/tmp/cache/**.*
+auth/log/**.*
+tasks/tmp/cache/**.*
+tasks/log/**.*

@@ -864,3 +864,325 @@ Publishing user_registered with {"id"=>"f6107ee1-df7c-4d06-823b-cddf43c631d0", "
 Publishing user_registered with {"id"=>"f6107ee1-df7c-4d06-823b-cddf43c631d0", "email"=>"popug@pustserg.com", "name"=>"Sergey", "role"=>"worker"} to topic auth.user_registered
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
 Publishing user_registered with {"id"=>"f6107ee1-df7c-4d06-823b-cddf43c631d0", "email"=>"popug@pustserg.com", "name"=>"Sergey", "role"=>"worker"} to topic auth.user_registered
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+[ActionDispatch::HostAuthorization::DefaultResponseApp] Blocked host: auth
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:33:41 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms | Allocations: 590)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.6) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.6) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.2) lib/devise/controllers/helpers.rb:255:in `handle_unverified_request'
+actionpack (7.0.6) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.6) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.6) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.6) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.6) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.6) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.6) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.6) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.6) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.6) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.6) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.6) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.6) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.6) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.6) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.6) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.6) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.6) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.8) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.8) lib/rack/etag.rb:27:in `call'
+rack (2.2.8) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.8) lib/rack/head.rb:12:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.6) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.8) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.8) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.6) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:131:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:35:30 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms | Allocations: 2405)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x0000ffffa43cf268>):
+  
+app/controllers/jwt_controller.rb:4:in `validate'
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:37:09 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 290ms (Views: 0.4ms | ActiveRecord: 4.6ms | Allocations: 43814)
+
+
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:38:10 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 11311)
+
+
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:41:08 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 5.3ms | Allocations: 4260)
+
+
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:42:02 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 924)
+
+
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:42:26 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 22ms (Views: 0.7ms | ActiveRecord: 2.1ms | Allocations: 924)
+
+
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:43:28 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 1.7ms | Allocations: 924)
+
+
+Started POST "/jwt/validate" for 172.20.0.7 at 2023-08-11 11:44:12 +0000
+Cannot render console from 172.20.0.7! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 913)
+
+
+Started GET "/" for 172.20.0.1 at 2023-08-11 11:46:47 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 1.3ms | Allocations: 1119)
+
+
+Started GET "/" for 172.20.0.1 at 2023-08-11 11:46:50 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 1.5ms | Allocations: 875)
+
+
+Started GET "/" for 172.20.0.1 at 2023-08-11 11:46:50 +0000
+Cannot render console from 172.20.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4:in `index'
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.5ms | Allocations: 876)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 13:33:45 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 75ms (Views: 0.3ms | ActiveRecord: 5.5ms | Allocations: 11303)
+
+
+Started POST "/jwt/validate" for 172.20.0.6 at 2023-08-11 13:54:46 +0000
+Cannot render console from 172.20.0.6! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 68ms (Views: 0.4ms | ActiveRecord: 6.5ms | Allocations: 11303)
+
+
+Started POST "/jwt/validate" for 172.20.0.6 at 2023-08-11 13:55:02 +0000
+Cannot render console from 172.20.0.6! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 926)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 13:58:33 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 74ms (Views: 0.3ms | ActiveRecord: 5.1ms | Allocations: 11303)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:00:44 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 20ms (Views: 0.7ms | ActiveRecord: 2.5ms | Allocations: 926)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:02:44 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 45ms (Views: 0.9ms | ActiveRecord: 6.4ms | Allocations: 924)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:03:53 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 65ms (Views: 0.3ms | ActiveRecord: 5.2ms | Allocations: 11303)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:04:29 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 2.2ms | Allocations: 926)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:05:19 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 18ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 924)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:06:04 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 3.3ms | Allocations: 924)
+
+
+Started POST "/jwt/validate" for 172.20.0.5 at 2023-08-11 14:07:10 +0000
+Cannot render console from 172.20.0.5! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JwtController#validate as */*
+  Parameters: {"token"=>"[FILTERED]", "jwt"=>{"token"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "f6107ee1-df7c-4d06-823b-cddf43c631d0"], ["LIMIT", 1]]
+  ↳ app/services/jwt_decode.rb:8:in `call'
+Completed 200 OK in 99ms (Views: 0.3ms | ActiveRecord: 9.3ms | Allocations: 11314)
+
+
