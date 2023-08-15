@@ -1,3 +1,5 @@
+# check Homework week2
+
 module Tasks
   class Shuffle
     include Interactor

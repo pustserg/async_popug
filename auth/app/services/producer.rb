@@ -1,4 +1,4 @@
-# check Homework w2
+# check Homework week2
 
 class Producer
   InvalidTopic = Class.new(ArgumentError)
@@ -21,7 +21,7 @@ class Producer
 
       @producer = WaterDrop::Producer.new
       @producer.setup do |config|
-        config.kafka = { 'bootstrap.servers': 'kafka:29092' }
+        config.kafka = { 'bootstrap.servers': 'kafka:9092' }
       end
       @producer
     end

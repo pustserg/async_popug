@@ -1,4 +1,4 @@
-# check Homework w2
+# check Homework week2
 
 module Users
   class Update
