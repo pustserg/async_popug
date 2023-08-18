@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "User.Registered.V1",
+  "description": "User registered event",
+
+  "definitions": {
+    "event_data": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    }
+  },
+
+  "properties": {
+    "event_id": { "type": "string" },
+    "event_version": { "enum": [1] },
+    "event_name": { "type": "string" },
+    "event_time": { "type": "string" },
+    "producer": { "type": "string" },
+    "data": { "$ref": "#/definitions/event_data" }
+  },
+
+  "required": ["event_id", "event_version", "event_name", "event_time", "producer", "data"]
+}
