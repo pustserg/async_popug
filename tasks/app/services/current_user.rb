@@ -1,5 +1,3 @@
-# check Homework week2
-
 # validates jwt token in auth service and returns current user
 require 'net/http'
 

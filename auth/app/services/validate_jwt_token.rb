@@ -1,5 +1,3 @@
-# check Homework week2
-
 class ValidateJwtToken
   include Interactor
   delegate :token, to: :context

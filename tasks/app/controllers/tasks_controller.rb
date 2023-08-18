@@ -1,5 +1,3 @@
-# check Homework week2
-
 class TasksController < ApplicationController
   def index
     tasks = Task.all

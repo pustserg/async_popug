@@ -1,5 +1,3 @@
-# check Homework week2
-
 class Producer
   InvalidTopic = Class.new(ArgumentError)
   NoSchema = Class.new(ArgumentError)
