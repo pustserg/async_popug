@@ -6,6 +6,7 @@ class KarafkaApp < Karafka::App
     config.client_id = 'tasks'
     # Recreate consumers with each batch. This will allow Rails code reload to work in the
     # development mode. Otherwise Karafka process would not be aware of code changes
+    config.strict_topics_namespacing = false
     config.consumer_persistence = !Rails.env.development?
   end
 
@@ -29,11 +30,11 @@ class KarafkaApp < Karafka::App
   )
 
   routes.draw do
-    topic :user_registered do
+    topic :'auth.user_registered' do
       consumer UserCreateConsumer
     end
 
-    topic :user_updated do
+    topic :'auth.user_updated' do
       consumer UserUpdateConsumer
     end
   end

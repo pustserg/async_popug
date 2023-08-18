@@ -5,9 +5,9 @@ class UserCreateConsumer < ApplicationConsumer
     messages.each do |message|
       Rails.logger.info "UserCreateConsumer: #{message}"
       message_body = JSON.parse(message.value)
-      params = message_body.merge(external_id: message_body['id']).except('id')
+      params = message_body['data'].merge(external_id: message_body['id']).except('id')
 
-      user = User.create(params.except)
+      user = User.create(params)
       if user.persisted?
         Rails.logger.info "UserCreateConsumer: User #{user.external_id} created"
       else

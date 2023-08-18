@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_133949) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_121757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_133949) do
     t.datetime "updated_at", null: false
     t.decimal "assign_price", precision: 10, scale: 2
     t.decimal "finish_price", precision: 10, scale: 2
+    t.uuid "public_id", default: -> { "gen_random_uuid()" }, null: false
+    t.string "jira_id"
   end
 
   create_table "users", force: :cascade do |t|

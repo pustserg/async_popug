@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "Transaction created event v1",
+  "description": "Transaction created",
+
+  "definitions": {
+    "event_data": {
+      "type": "object",
+      "properties": {
+        "public_id": { "type": "string" },
+        "task_public_id": { "type": "string" },
+        "user_id": { "type": "string" },
+        "kind": { "enum": ["income", "outcome"] },
+        "memo": { "type": "string" }
+      },
+      "required": ["public_id", "user_id", "task_public_id", "memo", "kind"]
+    }
+  },
+
+  "properties": {
+    "event_id": { "type": "string" },
+    "event_version": { "enum": [1] },
+    "event_name": { "type": "string" },
+    "event_time": { "type": "string" },
+    "producer": { "type": "string" },
+    "data": { "$ref": "#/definitions/event_data" }
+  },
+
+  "required": ["event_id", "event_version", "event_name", "event_time", "producer", "data"]
+}
