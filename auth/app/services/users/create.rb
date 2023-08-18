@@ -1,4 +1,3 @@
-# check Homework week2
 module Users
   class Create
     include Interactor

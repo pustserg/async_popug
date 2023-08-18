@@ -1,5 +1,3 @@
-# check Homework week2
-
 module Tasks
   class Finish
     include Interactor

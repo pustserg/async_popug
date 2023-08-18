@@ -1,5 +1,3 @@
-# check Homework week2
-
 module Users
   class Update
     include Interactor
