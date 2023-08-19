@@ -1,3 +1,5 @@
+# check homework week3
+
 class Producer
   InvalidTopic = Class.new(ArgumentError)
   NoSchema = Class.new(ArgumentError)
@@ -16,8 +18,13 @@ class Producer
       raise NoSchema unless SCHEMAS_MAPPING.key?(event_type)
 
       event_payload = generate_payload(event_type, payload)
-      Rails.logger.info "Publishing #{event_type} with #{event_payload} to topic #{TOPICS_MAPPING[event_type]}"
-      producer.produce_async(payload: JSON.generate(event_payload), topic: TOPICS_MAPPING[event_type])
+      result = SchemaRegistry.validate_event(event_payload, SCHEMAS_MAPPING[event_type], version: 1)
+      if result.success?
+        Rails.logger.info "Publishing #{event_type} with #{event_payload} to topic #{TOPICS_MAPPING[event_type]}"
+        producer.produce_async(payload: JSON.generate(event_payload), topic: TOPICS_MAPPING[event_type])
+      else
+        Rails.logger.error "Invalid payload #{event_payload} for #{event_type} version 1"
+      end
     end
 
     private

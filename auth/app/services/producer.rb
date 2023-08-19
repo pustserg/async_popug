@@ -18,6 +18,7 @@ class Producer
 
       event_payload = generate_payload(event_type, payload)
 
+      # check homework week3
       result = SchemaRegistry.validate_event(event_payload, SCHEMAS_MAPPING[event_type], version: 2)
       if result.success?
         Rails.logger.info "Publishing #{event_type} with #{event_payload} to topic #{TOPICS_MAPPING[event_type]}"

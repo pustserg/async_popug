@@ -1,3 +1,5 @@
+# check homework week3
+
 class UserCreateConsumer < ApplicationConsumer
   def consume
     messages.each do |message|
